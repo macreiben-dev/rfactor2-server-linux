@@ -5,7 +5,7 @@ RUN dpkg --add-architecture i386 \
   && apt-get update \
   && apt-get install -y wine \
   && apt-get install -y x11vnc xvfb openssh-server \
-  && apt-get install -y lib32gcc1 lib32z1 lib32stdc++6 \
+  && apt-get install -y lib32gcc-s1 lib32z1 lib32stdc++6 \
   && apt-get install -y curl \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
@@ -19,7 +19,7 @@ RUN mkdir /steamcmd \
 # Installation de rFactor2
 RUN mkdir /server \
   && cd /server \
-  && ./steamcmd.sh +login anonymous +force_install_dir /server +app_update 365960 validate +quit
+  && /steamcmd/steamcmd.sh +login anonymous +force_install_dir /server +app_update 365960 validate +quit
 
 # Configuration du serveur SSH
 RUN mkdir /var/run/sshd \
