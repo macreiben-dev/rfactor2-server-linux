@@ -17,26 +17,28 @@ RUN mkdir /steamcmd \
   && ./steamcmd.sh +quit
 
 # Installation de rFactor2
-RUN mkdir /server \
-  && cd /server \
-  && /steamcmd/steamcmd.sh +login anonymous +force_install_dir /server +app_update 365960 validate +quit
+# RUN mkdir ~/.wine \
+#   mkdir ~/.wine/drive_c \
+#   && mkdir ~/.wine/drive_c/server \
+#   && cd ~/.wine/drive_c/server \
+#   && wine /steamcmd/steamcmd.sh +login anonymous +force_install_dir ~/.wine/drive_c/server +app_update 365960 validate +quit
 
 # Configuration du serveur SSH
-RUN mkdir /var/run/sshd \
-  && sed -ri 's/#PermitRootLogin prohibit-password/PermitRootLogin no/g' /etc/ssh/sshd_config \
-  && sed -ri 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
+# RUN mkdir /var/run/sshd \
+#   && sed -ri 's/#PermitRootLogin prohibit-password/PermitRootLogin no/g' /etc/ssh/sshd_config \
+#   && sed -ri 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 
 # Configuration du serveur VNC
 RUN mkdir ~/.vnc \
-  && echo "password" | vncpasswd -f > ~/.vnc/passwd \
+  && echo "password" > ~/.vnc/passwd \
   && chmod 600 ~/.vnc/passwd
 
 # Installation de la clé SSH
-RUN mkdir /root/.ssh \
-  && chmod 700 /root/.ssh \
-  && touch /root/.ssh/authorized_keys \
-  && chmod 600 /root/.ssh/authorized_keys \
-  && echo "Votre clé publique SSH" >> /root/.ssh/authorized_keys
+# RUN mkdir /root/.ssh \
+#   && chmod 700 /root/.ssh \
+#   && touch /root/.ssh/authorized_keys \
+#   && chmod 600 /root/.ssh/authorized_keys \
+#   && echo "Votre clé publique SSH" >> /root/.ssh/authorized_keys
 
 # Exposition des ports
 # On expose le port 22 pour le serveur SSH, le port 5900 pour le serveur VNC, le port 64297 pour le serveur web rFactor2 et le port 54297 pour le serveur de jeux rFactor2
