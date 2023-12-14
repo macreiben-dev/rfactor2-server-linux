@@ -10,28 +10,31 @@ RUN dpkg --add-architecture i386 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
+# Configuration du serveur VNC
+RUN mkdir -p ~/.vnc && x11vnc -storepasswd yourpassword ~/.vnc/passwd
+
+# RUN mkdir ~/.vnc \
+#   && echo "password" | vncpasswd -f > ~/.vnc/passwd \
+#   && chmod 600 ~/.vnc/passwd
+
 # Installation de SteamCMD
 RUN mkdir /steamcmd \
   && cd /steamcmd \
-  && curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf - \
+  && wget "https://media.steampowered.com/client/steamcmd_linux.tar.gz" \
+  && tar -xvzf steamcmd_linux.tar.gz \
   && ./steamcmd.sh +quit
 
 # Installation de rFactor2
-# RUN mkdir ~/.wine \
-#   mkdir ~/.wine/drive_c \
-#   && mkdir ~/.wine/drive_c/server \
-#   && cd ~/.wine/drive_c/server \
-#   && wine /steamcmd/steamcmd.sh +login anonymous +force_install_dir ~/.wine/drive_c/server +app_update 365960 validate +quit
+RUN mkdir /server \
+  && cd /server \
+  && /steamcmd/steamcmd +@sSteamCmdForcePlatformType windows +force_install_dir /server +login anonymous +app_update 365960 validate +quit
 
 # Configuration du serveur SSH
 # RUN mkdir /var/run/sshd \
 #   && sed -ri 's/#PermitRootLogin prohibit-password/PermitRootLogin no/g' /etc/ssh/sshd_config \
 #   && sed -ri 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 
-# Configuration du serveur VNC
-RUN mkdir ~/.vnc \
-  && echo "password" > ~/.vnc/passwd \
-  && chmod 600 ~/.vnc/passwd
+
 
 # Installation de la clé SSH
 # RUN mkdir /root/.ssh \
