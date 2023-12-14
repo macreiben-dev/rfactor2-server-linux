@@ -27,7 +27,7 @@ RUN mkdir /steamcmd \
 # Installation de rFactor2
 RUN mkdir /server \
   && cd /server \
-  && /steamcmd/steamcmd +@sSteamCmdForcePlatformType windows +force_install_dir /server +login anonymous +app_update 365960 validate +quit
+  && /steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir /server +login anonymous +app_update 400300 validate +quit
 
 # Configuration du serveur SSH
 # RUN mkdir /var/run/sshd \
