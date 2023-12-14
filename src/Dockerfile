@@ -1,5 +1,7 @@
 FROM ubuntu:latest
 
+# ARG sshPublicKey
+
 # Installation des paquets nécessaires
 RUN dpkg --add-architecture i386 \
   && apt-get update \
@@ -13,10 +15,6 @@ RUN dpkg --add-architecture i386 \
 # Configuration du serveur VNC
 RUN mkdir -p ~/.vnc && x11vnc -storepasswd yourpassword ~/.vnc/passwd
 
-# RUN mkdir ~/.vnc \
-#   && echo "password" | vncpasswd -f > ~/.vnc/passwd \
-#   && chmod 600 ~/.vnc/passwd
-
 # Installation de SteamCMD
 RUN mkdir /steamcmd \
   && cd /steamcmd \
@@ -29,19 +27,24 @@ RUN mkdir /server \
   && cd /server \
   && /steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir /server +login anonymous +app_update 400300 validate +quit
 
+# Copy powershell installation scripts
+RUN mkdir -p /scripts
+COPY ./install_ps.sh /scripts/install_ps.sh
+WORKDIR /scripts
+RUN chmod +x install_ps.sh
+RUN ./install_ps.sh
+
 # Configuration du serveur SSH
 # RUN mkdir /var/run/sshd \
 #   && sed -ri 's/#PermitRootLogin prohibit-password/PermitRootLogin no/g' /etc/ssh/sshd_config \
 #   && sed -ri 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
-
-
 
 # Installation de la clé SSH
 # RUN mkdir /root/.ssh \
 #   && chmod 700 /root/.ssh \
 #   && touch /root/.ssh/authorized_keys \
 #   && chmod 600 /root/.ssh/authorized_keys \
-#   && echo "Votre clé publique SSH" >> /root/.ssh/authorized_keys
+#   && echo $sshPublicKey >> /root/.ssh/authorized_keys
 
 # Exposition des ports
 # On expose le port 22 pour le serveur SSH, le port 5900 pour le serveur VNC, le port 64297 pour le serveur web rFactor2 et le port 54297 pour le serveur de jeux rFactor2
