@@ -1,6 +1,7 @@
 FROM ubuntu:latest
 
 # ARG sshPublicKey
+ARG workshopitemList
 
 # Installation des paquets nécessaires
 RUN dpkg --add-architecture i386 \
@@ -33,6 +34,10 @@ COPY ./install_ps.sh /scripts/install_ps.sh
 WORKDIR /scripts
 RUN chmod +x install_ps.sh
 RUN ./install_ps.sh
+
+COPY ./download-item-workshop.ps1 /scripts/download-item-workshop.ps1
+WORKDIR /scripts
+RUN pwsh /scripts/download-item-workshop.ps1 -WorkshopItems $workshopitemList -SteamCMDFolder /steamcmd -SteamCmdEntryPoint "steamcmd.sh"
 
 # Configuration du serveur SSH
 # RUN mkdir /var/run/sshd \
