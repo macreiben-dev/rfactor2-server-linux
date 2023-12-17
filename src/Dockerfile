@@ -39,6 +39,9 @@ COPY ./download-item-workshop.ps1 /scripts/download-item-workshop.ps1
 WORKDIR /scripts
 RUN pwsh /scripts/download-item-workshop.ps1 -WorkshopItems $workshopitemList -SteamCMDFolder /steamcmd -SteamCmdEntryPoint "steamcmd.sh"
 
+COPY ./copy-dlc-to-packages.ps1 /scripts/copy-dlc-to-packages.ps1
+RUN pwsh /scripts/copy-dlc-to-packages.ps1 -ServerInstallationDirectory /server -SteamCMDFolder /root/Steam
+
 # Configuration du serveur SSH
 # RUN mkdir /var/run/sshd \
 #   && sed -ri 's/#PermitRootLogin prohibit-password/PermitRootLogin no/g' /etc/ssh/sshd_config \
@@ -50,6 +53,8 @@ RUN pwsh /scripts/download-item-workshop.ps1 -WorkshopItems $workshopitemList -S
 #   && touch /root/.ssh/authorized_keys \
 #   && chmod 600 /root/.ssh/authorized_keys \
 #   && echo $sshPublicKey >> /root/.ssh/authorized_keys
+
+WORKDIR /server
 
 # Exposition des ports
 # On expose le port 22 pour le serveur SSH, le port 5900 pour le serveur VNC, le port 64297 pour le serveur web rFactor2 et le port 54297 pour le serveur de jeux rFactor2
