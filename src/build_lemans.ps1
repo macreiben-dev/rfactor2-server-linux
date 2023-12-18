@@ -1,0 +1,1 @@
+docker build . -t "rf2-linux-server-lemans" --build-arg workshopitemList=1737056865 --progress plain --no-cache
