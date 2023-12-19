@@ -29,6 +29,7 @@ RUN mkdir /server \
   && /steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir /server +login anonymous +app_update 400300 validate +quit
 
 COPY ./ServerUnlock.bin /server/UserData
+COPY --chmod=555 ./adminScripts/*.sh /server 
 
 # Copy powershell installation scripts
 RUN mkdir -p /scripts
@@ -39,7 +40,7 @@ RUN chmod +x install_ps.sh
 RUN ./install_ps.sh
 
 COPY ./download-item-workshop.ps1 /scripts/download-item-workshop.ps1
-RUN pwsh /scripts/download-item-workshop.ps1 -WorkshopItems $workshopitemList -SteamCMDFolder /steamcmd -SteamCmdEntryPoint "steamcmd.sh"
+RUN pwsh /scripts/download-item-workshop.ps1 -WorkshopItems $workshopitemList -SteamCMDFolder /steamcmd
 
 COPY ./copy-dlc-to-packages.ps1 /scripts/copy-dlc-to-packages.ps1
 RUN pwsh /scripts/copy-dlc-to-packages.ps1 -ServerInstallationDirectory /server -SteamCMDFolder /root/Steam

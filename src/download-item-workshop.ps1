@@ -1,9 +1,9 @@
 param([Parameter(Mandatory)] [string] $SteamCMDFolder, 
-  [string[]] $WorkshopItems,
+  [string] $WorkshopItems,
   [string] $ItemsIdFilePath,
   [bool] $Diagnose = $false,
-  [bool] $Force = $false,
-  [string] $SteamCmdEntryPoint = "steamcmd")
+  [bool] $Force = $false
+)
 
 Write-Host "====== DownloadItem script ======"
 Write-Host "Given parameter SteamCmdPath:         $SteamCMDFolder"
@@ -21,18 +21,7 @@ if ($is_steamCmdFolder_exist -ne $true) {
   Exit 4
 }
 
-$items = $WorkshopItems;
-
-# if ($ItemsIdFilePath -ne $null) {
-
-#   Write-Output "Using file instead of inline parameters (row count processed):"
-
-#   $items = New-Object System.Collections.ArrayList
-
-#   foreach ($itemId in Get-Content $ItemsIdFilePath) {
-#     $items.Add($itemId)
-#   }
-# }
+$items = $WorkshopItems.Split(",");
 
 Set-Location $SteamCMDFolder
 
