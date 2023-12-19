@@ -2,6 +2,7 @@ FROM ubuntu:latest
 
 # ARG sshPublicKey
 ARG workshopitemList
+ARG vncPassword
 
 # Installation des paquets nécessaires
 RUN dpkg --add-architecture i386 \
@@ -14,7 +15,7 @@ RUN dpkg --add-architecture i386 \
   && rm -rf /var/lib/apt/lists/*
 
 # Configuration du serveur VNC
-RUN mkdir -p ~/.vnc && x11vnc -storepasswd yourpassword ~/.vnc/passwd
+RUN mkdir -p ~/.vnc && x11vnc -storepasswd $vncPassword ~/.vnc/passwd
 
 # Installation de SteamCMD
 RUN mkdir /steamcmd \
