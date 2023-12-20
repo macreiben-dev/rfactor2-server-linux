@@ -1,4 +1,4 @@
-# rfactor2-server-linux
+# rFactor2 Linux Server as Docker image
 
 This is docker container that bootstraps a rFactor 2 container on an ubuntu.
 
