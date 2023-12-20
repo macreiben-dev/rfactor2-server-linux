@@ -6,6 +6,12 @@ This is docker container that bootstraps a rFactor 2 container on an ubuntu.
 
 - Run any src/build_ script to initialize a server.
 
+## Running an image
+
+```Shell
+docker run -p 5900:5900 rf2-linux-server-lemans
+```
+
 # Thoughts
 
 ## "Why on earth did you use PowerShell ??"
