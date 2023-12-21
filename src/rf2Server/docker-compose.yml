@@ -1,0 +1,5 @@
+services:
+  rf2-server:
+    image: rf2-linux-server-lemans
+    ports:
+      - 5900:5900
