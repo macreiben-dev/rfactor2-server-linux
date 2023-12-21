@@ -57,4 +57,4 @@ EXPOSE 54297/udp
 
 # Démarrage du serveur SSH, du serveur VNC et de rFactor 2
 #CMD ["bash", "-c", "service ssh start && x11vnc -forever -usepw -create && cd /server && wine64 rFactor2.exe +path=./ +fullproc +dedicated +serverName=\"My Server Name\" +raceFuel=100 +numThreads=2 +threads=2 +raceLaps=0 +startClear=\"100%\" +maxPlayers=16 +requiredPlayers=4 +httpPort=64297 +serverPort=54297"] 
-CMD ["bash", "-c", "x11vnc -forever -usepw -create && cd /server"] 
+CMD ["bash", "-c", "x11vnc -forever -usepw -create && cd /server"]                                          
