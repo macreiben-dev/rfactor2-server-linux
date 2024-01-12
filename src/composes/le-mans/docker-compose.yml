@@ -8,3 +8,6 @@ services:
       - 64298:64298
       - 64299:64299
       - 54297:54297
+    environment:
+      - VNC_PASSWORD=password
+    command: /bin/bash -c "/scripts/startup.sh"
