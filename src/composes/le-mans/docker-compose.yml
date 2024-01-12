@@ -1,0 +1,13 @@
+services:
+  rfactor-server:
+    image: rf2-linux-server-lemans
+    container_name: rf2-linux-server-lemans
+    ports:
+      - 45100:5900
+      - 64297:64297
+      - 64298:64298
+      - 64299:64299
+      - 54297:54297
+    environment:
+      - VNC_PASSWORD=password
+    command: /bin/bash -c "/scripts/startup.sh"
