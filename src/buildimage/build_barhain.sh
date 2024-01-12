@@ -3,6 +3,4 @@ tracks="2883380016"
 
 items="${cars},${tracks}"
 
-vncPassword="yourpassword"
-
-docker build . -t "rf2-linux-server-barhain" --build-arg workshopitemList=$items --build-arg vncPassword=$vncPassword --progress plain
+docker build . -t "rf2-linux-server-barhain" --build-arg workshopitemList=$items
