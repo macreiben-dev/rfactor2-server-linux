@@ -49,12 +49,12 @@ RUN pwsh /scripts/copy-dlc-to-packages.ps1 -ServerInstallationDirectory /server 
 
 WORKDIR /server
 
-# Exposition des ports
-# On expose le port 22 pour le serveur SSH, le port 5900 pour le serveur VNC, le port 64297 pour le serveur web rFactor2 et le port 54297 pour le serveur de jeux rFactor2
+# Exposing server ports
 EXPOSE 5900
 EXPOSE 64297
+EXPOSE 64298
+EXPOSE 64299
 EXPOSE 54297/udp
 
-# Démarrage du serveur SSH, du serveur VNC et de rFactor 2
-#CMD ["bash", "-c", "service ssh start && x11vnc -forever -usepw -create && cd /server && wine64 rFactor2.exe +path=./ +fullproc +dedicated +serverName=\"My Server Name\" +raceFuel=100 +numThreads=2 +threads=2 +raceLaps=0 +startClear=\"100%\" +maxPlayers=16 +requiredPlayers=4 +httpPort=64297 +serverPort=54297"] 
+# starting x11 server and move current directory to /server
 CMD ["bash", "-c", "x11vnc -forever -usepw -create && cd /server"]                                          
