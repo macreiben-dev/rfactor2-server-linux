@@ -1,0 +1,13 @@
+services:
+  rfactor-server:
+    image: rf2-linux-server-barhain
+    container_name: rf2-linux-server-barhain
+    ports:
+      - 46100:5900
+      - 65297:64297
+      - 65298:64298
+      - 65299:64299
+      - 55297:54297
+    environment:
+      - VNC_PASSWORD=password
+    command: /bin/bash -c "/scripts/startup.sh"
