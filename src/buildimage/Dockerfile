@@ -2,8 +2,6 @@ FROM ubuntu:latest
 
 # ARG sshPublicKey
 ARG workshopitemList
-ARG vncPassword
-
 # Installation des paquets nécessaires
 RUN dpkg --add-architecture i386 \
   && apt-get update \
@@ -14,9 +12,6 @@ RUN dpkg --add-architecture i386 \
   && apt-get install -y wget \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
-
-# Configuration du serveur VNC
-# RUN mkdir -p ~/.vnc && x11vnc -storepasswd $vncPassword ~/.vnc/passwd
 
 # Installation de SteamCMD
 RUN mkdir /steamcmd \
@@ -30,7 +25,6 @@ RUN mkdir /server \
   && cd /server \
   && /steamcmd/steamcmd.sh +@sSteamCmdForcePlatformType windows +force_install_dir /server +login anonymous +app_update 400300 validate +quit
 
-COPY ./ServerUnlock.bin /server/UserData
 COPY --chmod=555 ./adminScripts/*.sh /server 
 
 RUN mkdir -p /scripts
