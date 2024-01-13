@@ -72,6 +72,4 @@ EXPOSE 64297
 EXPOSE 64298
 EXPOSE 64299
 EXPOSE 54297
-
-# starting x11 server and move current directory to /server
-# CMD ["bash", "-c", "x11vnc -forever -usepw -create && cd /server"]                                          
+                                  
