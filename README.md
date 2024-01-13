@@ -30,6 +30,16 @@ Feel free to remap the ports in the docker compose file.
 docker run -p 5900:5900 rf2-linux-server-lemans
 ```
 
+## Cleanup sh script from windows EOF char
+
+```Shell
+sed 's/\r$//' input_file.txt > output_file.txt 
+```
+
+Sometimes after git clone, it is not possible to run the script on windows because of end of file character. 
+
+So this sed script remove them.
+
 # Thoughts
 
 ## "Why on earth did you use PowerShell ??"
