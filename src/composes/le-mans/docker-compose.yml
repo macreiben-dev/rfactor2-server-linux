@@ -11,3 +11,4 @@ services:
     environment:
       - VNC_PASSWORD=password
     command: /bin/bash -c "/scripts/startup.sh"
+    restart: unless-stopped
