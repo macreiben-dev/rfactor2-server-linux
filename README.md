@@ -38,7 +38,7 @@ sed 's/\r$//' input_file.txt > output_file.txt
 
 Sometimes after git clone, it is not possible to run the script on windows because of end of file character. 
 
-So this sed script remove them. You should use LF end of lines.
+So this sed script remove them. You should use LF end of lines in your code editor.
 
 # Thoughts
 
