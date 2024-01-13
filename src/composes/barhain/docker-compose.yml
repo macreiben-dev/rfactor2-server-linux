@@ -1,15 +1,17 @@
 services:
-  rfactor-server:
+   rfactor-server:
     image: rf2-linux-server-barhain
     container_name: rf2-linux-server-barhain
     volumes:
       - /mnt/containers/rf2server-bahrain/UserData:/server/UserData
+      - /mnt/containers/rf2server-bahrain/Installed:/server/Installed
     ports:
       - 46100:5900
-      - 65297:64297
-      - 65298:64298
-      - 65299:64299
-      - 55297:54297
+      - 65297:65297/tcp
+      - 65298:65298/udp
+      - 65299:65299/udp
+      - 55297:55297/tcp
+      - 55297:55297/udp
     environment:
       - VNC_PASSWORD=password
     command: /bin/bash -c "/scripts/startup.sh"
