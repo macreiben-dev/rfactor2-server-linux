@@ -3,4 +3,4 @@ tracks="2883380016"
 
 items="${cars},${tracks}"
 
-docker build . -t "rf2-linux-server-barhain" --build-arg workshopitemList=$items
+docker build . -t "rf2-linux-server-barhain" --no-cache --build-arg workshopitemList=$items
