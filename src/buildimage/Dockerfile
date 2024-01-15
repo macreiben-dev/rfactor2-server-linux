@@ -58,6 +58,12 @@ RUN pwsh /scripts/download-item-workshop.ps1 -WorkshopItems $workshopitemList -S
 COPY --chmod=555 ./installationScripts/copy-dlc-to-packages.ps1 /scripts/copy-dlc-to-packages.ps1
 RUN pwsh /scripts/copy-dlc-to-packages.ps1 -ServerInstallationDirectory /server -SteamCMDFolder /root/Steam
 
+# ====================== USER CREATION  ======================
+RUN useradd -ms /bin/bash rf2user
+RUN chown -R rf2user:rf2user /server
+
+USER rf2user
+
 WORKDIR /server
 
 # Exposing server ports

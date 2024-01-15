@@ -4,4 +4,4 @@
 sh /scripts/set_password.sh
 
 # Start x server
-x11vnc -forever -usepw -create && cd /server
+su -c "x11vnc -forever -usepw -create && cd /server" -s /bin/bash rf2user
