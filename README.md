@@ -2,8 +2,8 @@
 
 This is docker container that bootstraps a rFactor 2 container on an ubuntu.
 
-- Under **[src/buildimage](./src/buildimage)]** you will find prebuid sh scripts to create docker images
-- Under **src/composes** you will find prebuid docker composes image
+- Under **[src/buildimage](./src/buildimage)** you will find prebuid sh scripts to create docker images
+- Under **[src/composes](./src/composes)** you will find prebuid docker composes image
 - You need to **add the ServerUnlock.bin file** to the mounted volume on the docker compose file otherwise, you won't be able to install DLCs.
   - *Do not commit your ServerUnlock.bin file* to a public repository otherwise your license will be used by other.
 
