@@ -4,7 +4,6 @@ services:
     container_name: rf2-linux-server-barhain
     volumes:
       - /mnt/containers/rf2server-bahrain/UserData:/server/UserData
-      - /mnt/containers/rf2server-bahrain/Installed:/server/Installed
     ports:
       - 46100:5900
       - 65297:65297/tcp

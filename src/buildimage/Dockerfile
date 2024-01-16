@@ -42,7 +42,7 @@ RUN ./install_ps.sh
 # Copy vnc password definition script
 COPY ./installationScripts/set_password.sh /scripts/set_password.sh
 RUN chmod +x /scripts/set_password.sh
-RUN mkdir -p ~/.vnc
+RUN mkdir -p /home/rf2user/.vnc
 
 # ========================= VNC  ========================= ___EOF___
 
@@ -58,12 +58,14 @@ RUN pwsh /scripts/download-item-workshop.ps1 -WorkshopItems $workshopitemList -S
 COPY --chmod=555 ./installationScripts/copy-dlc-to-packages.ps1 /scripts/copy-dlc-to-packages.ps1
 RUN pwsh /scripts/copy-dlc-to-packages.ps1 -ServerInstallationDirectory /server -SteamCMDFolder /root/Steam
 
+# ====================== USER CREATION  ======================
+
+RUN useradd -ms /bin/bash rf2user
+RUN chown -R rf2user:rf2user /server
+RUN chown -R rf2user:rf2user /home/rf2user
+
+USER rf2user
+
 WORKDIR /server
 
-# Exposing server ports
-EXPOSE 5900
-EXPOSE 64297
-EXPOSE 64298
-EXPOSE 64299
-EXPOSE 54297
-                                  
+CMD ["/bin/bash"]
