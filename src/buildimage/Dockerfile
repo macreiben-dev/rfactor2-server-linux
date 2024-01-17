@@ -27,9 +27,10 @@ RUN mkdir /server \
 
 COPY --chmod=555 ./adminScripts/*.sh /server 
 
+# ================ Powershell install ====================
+
 RUN mkdir -p /scripts
 
-# ================ Powershell install ====================
 # Copy powershell installation scripts
 COPY ./install_ps.sh /scripts/install_ps.sh
 
