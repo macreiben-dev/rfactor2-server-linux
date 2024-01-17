@@ -20,14 +20,20 @@ When the server starts, it registers the port in the ladder. Use docker NAT to u
 Example :
 
 ```yml
- ports:
+    ports:
       - 46100:5900
       - 65297:65297/tcp
       - 65298:65298/udp
       - 65299:65299/udp
       - 55297:55297/tcp
       - 55297:55297/udp
+    environment:
+      - VNC_PASSWORD=password
+      - HTTP_SERVER_PORT=65297
+      - SIMULATION_PORT=55297
 ```
+
+Once connected to the VNC server, run ./admin_patch_serverPort.sh script to match port defined in docker compose environment variable.
 
 ## Building the image
 
