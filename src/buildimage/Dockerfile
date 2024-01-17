@@ -10,6 +10,8 @@ RUN dpkg --add-architecture i386 \
   && apt-get install -y lib32gcc-s1 lib32z1 lib32stdc++6 \
   && apt-get install -y curl \
   && apt-get install -y wget \
+  && apt-get install -y vim \
+  && apt-get install -y jq \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 

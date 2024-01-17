@@ -6,9 +6,9 @@ http_server_port="$HTTP_SERVER_PORT"
 # Specify the file path
 json_file="/server/UserData/player/Multiplayer.JSON"
 
-if [ -e "$json_file" ]; then
+if [ ! -e "$json_file" ]; then
     echo "${json_file} not found."
-    exit(0)
+    exit 0
 fi
 
 # Check if the variable is set
