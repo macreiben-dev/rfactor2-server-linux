@@ -23,11 +23,8 @@ if [ -n "$http_server_port" ] && [ -n "$simulation_port" ] ; then
 
     # Update the JSON file using jq
 
-    sed -i 's/\("Simulation Port":\)54297/\1'"$simulation_port"'/' "${json_file}"
-
-
-    #jq --argjson new_port "$http_server_port" '.["Multiplayer General Options"]["HTTP Server Port"]=$new_port' "${json_file}.tmp" > "${json_file}_001.tmp"
-    #jq --argjson new_port "$simulation_port" '.["Multiplayer General Options"]["Simulation Port"]=$new_port' "${json_file}_001.tmp" > "${json_file}_002.tmp"
+    sed -i 's/\("Simulation Port":\)[0-9]\+/\1'"$simulation_port"'/' "${json_file}"
+    sed -i 's/\("HTTP Server Port":\)[0-9]\+/\1'"$http_server_port"'/' "${json_file}"
 
     # Replace configuration
     mv "${json_file}_001.tmp" "${json_file}"
