@@ -10,6 +10,8 @@ RUN dpkg --add-architecture i386 \
   && apt-get install -y lib32gcc-s1 lib32z1 lib32stdc++6 \
   && apt-get install -y curl \
   && apt-get install -y wget \
+  && apt-get install -y vim \
+  && apt-get install -y jq \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
@@ -27,9 +29,10 @@ RUN mkdir /server \
 
 COPY --chmod=555 ./adminScripts/*.sh /server 
 
+# ================ Powershell install ====================
+
 RUN mkdir -p /scripts
 
-# ================ Powershell install ====================
 # Copy powershell installation scripts
 COPY ./install_ps.sh /scripts/install_ps.sh
 
