@@ -1,2 +1,3 @@
 cd /server
-wine /server/Bin64/ModMgr.exe
+
+WINEDEBUG=-debug wine /server/Bin64/ModMgr.exe

@@ -1,3 +1,3 @@
 cd /server
 
-wine /server/Support/Tools/MAS2.exe
+WINEDEBUG=-debug wine /server/Support/Tools/MAS2.exe
