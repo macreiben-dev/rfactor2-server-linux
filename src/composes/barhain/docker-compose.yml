@@ -1,7 +1,7 @@
 services:
    rfactor-server:
-    image: rf2-linux-server-barhain
-    container_name: rf2-linux-server-barhain
+    image: rf2-linux-server-barhain-endu
+    container_name: rf2-linux-server-barhain-dev
     volumes:
       - /mnt/containers/rf2server-bahrain/UserData:/server/UserData
     ports:
