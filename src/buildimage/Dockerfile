@@ -64,12 +64,15 @@ RUN pwsh /scripts/copy-dlc-to-packages.ps1 -ServerInstallationDirectory /server 
 
 # ====================== USER CREATION  ======================
 
-RUN useradd -ms /bin/bash rf2user
+RUN useradd -ms /bin/bash rf2user -p $(perl -e 'print crypt($ARGV[0], "password")' 'rf2user')
 RUN chown -R rf2user:rf2user /server
 RUN chown -R rf2user:rf2user /home/rf2user
+
+RUN cp /etc/X11/Xwrapper.config /etc/X11/Xwrapper.config.bak
+RUN sed -i 's/^allowed_users=console$/allowed_users=anybody/' /etc/X11/Xwrapper.config
 
 USER rf2user
 
 WORKDIR /server
 
-CMD ["/bin/bash"]
+CMD [ "/bin/bash" "startxfce4"]
