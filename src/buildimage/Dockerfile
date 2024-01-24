@@ -12,6 +12,7 @@ RUN dpkg --add-architecture i386 \
   && apt-get install -y wget \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y xfce4 \
   && apt-get install -y vim \
+  && apt-get install -y htop \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
