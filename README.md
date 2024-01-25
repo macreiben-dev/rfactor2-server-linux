@@ -11,7 +11,9 @@ This is docker container that bootstraps a rFactor 2 container on an ubuntu.
       - /mnt/containers/rf2server-bahrain/UserData:/server/UserData
 ```
 
-## Port configuration
+## Setting up one server
+
+### Port configuration
 
 The port configuration defined in docker compose must the same as the those declared in the server - which lives in the container. 
 
@@ -33,7 +35,24 @@ Example :
       - SIMULATION_PORT=55297
 ```
 
-Once connected to the VNC server, run ./admin_patch_serverPort.sh script to match port defined in docker compose environment variable.
+- **Run ./admin_patch_serverPort.sh** script to match port defined in docker compose environment variable.
+
+### Configure xfce4 for the first time
+
+- **Run ./admin_show_desktop.sh** to launch xfce4
+- **Disable screen saver**, go to Application > Settings > Screensaver
+  - Otherwise, the screensaver activates and you won't be able to connect with VNC.
+
+### Configure permission on mounter volums
+
+- Ensure the docker container can write on the mounted folder
+
+### Optional : set server wallpaper to identify the server
+
+- Under **/home/rf2User/Pictures** 
+  - you have a few wallpapers with numbers you can use to tag server background
+![Provided wallpaper](./docs/assets/screenshot_wallpapers.png)
+- **Right click** on a picture > **Set as wall paper**
 
 ## Building the image
 
