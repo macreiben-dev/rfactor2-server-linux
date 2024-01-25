@@ -41,7 +41,14 @@ Example :
 
 - **Run ./admin_show_desktop.sh** to launch xfce4
 - **Disable screen saver**, go to Application > Settings > Screensaver
-  - Otherwise, the screensaver activates and you won't be able to open a x11 session
+  - Otherwise, the screensaver activates and you won't be able to connect with VNC.
+  
+### Optional : set server wallpaper to identify the server
+
+- Under **/home/rf2User/Pictures** 
+  - you have a few wallpapers with numbers you can use to tag server background
+![Provided wallpaper](./docs/assets/screenshot_wallpapers.png)
+- **Right click** on a picture > **Set as wall paper**
 
 ## Building the image
 
