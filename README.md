@@ -42,7 +42,11 @@ Example :
 - **Run ./admin_show_desktop.sh** to launch xfce4
 - **Disable screen saver**, go to Application > Settings > Screensaver
   - Otherwise, the screensaver activates and you won't be able to connect with VNC.
-  
+
+### Configure permission on mounter volums
+
+- Ensure the docker container can write on the mounted folder
+
 ### Optional : set server wallpaper to identify the server
 
 - Under **/home/rf2User/Pictures** 
