@@ -3,7 +3,7 @@ FROM ubuntu:latest
 ARG workshopitemList
 
 # ========================================================================
-# Copy installation script to script directory.
+# Setup server packages and tool to install rf2Server.
 
 RUN mkdir -p /scripts
 
@@ -32,10 +32,13 @@ RUN ./step_installing_rf2server.sh
 COPY --chmod=555 ./adminScripts/*.sh /server 
 
 # ========================================================================
+# Item download and copy
 
 RUN ./step_workshopcontent_downloaditems.sh
 
 RUN ./step_workshopcontent_copyitems.sh
+
+# ========================================================================
 
 USER rf2user
 
