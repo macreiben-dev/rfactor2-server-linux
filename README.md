@@ -11,7 +11,33 @@ This is docker container that bootstraps a rFactor 2 container on an ubuntu.
       - /mnt/containers/rf2server-bahrain/UserData:/server/UserData
 ```
 
-## Setting up one server
+## Getting started - configuring the server
+
+- On the **host**, 
+  - **Upload ServerUnlock.bin** file to your home directory
+- Connect to the server using a vnc client
+- Run **./admin_start_server.sh**
+  - This script attempts to start the server
+  - On starting, it will creates the UserData folder structure and default file
+- Run **./admin_patch_server_port.sh**
+  - The scripts modifies Multiplayer.json to listen to the port defined in environment variables
+- Run **./admin_show_desktop.sh** to load xfce4 as window manager
+- **Disable the screensaver**
+  - Go to *Applications > Settings > Screensaver*
+  - Select disable
+- On the **host**,
+  - Copy **~/ServerUnlock.bin** to the the UserData mounted folder
+- Install content from the image
+  - Open xTerm
+  - Run **./admin_start_modMgr.sh**
+  - Select uninstalled package
+  - Click Install
+  - Click Update to update the components to the latest version
+- Run **./admin_start_mas2.sh** 
+  - create the package for your event
+- Run **./admin_start_server.sh** to run the server
+
+## In depth
 
 ### Port configuration
 
