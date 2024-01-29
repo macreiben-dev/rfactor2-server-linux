@@ -4,4 +4,4 @@
 sh /scripts/startup_x11vnc_setPassword.sh
 
 # Start x server
-x11vnc -forever -usepw -create && cd /server
+x11vnc -forever -usepw -create -o ~/.vnc/x11vnc.log && cd /server
