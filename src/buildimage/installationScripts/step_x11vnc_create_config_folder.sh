@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mkdir -p /home/rf2user/.vnc
+mkdir -p $RUNTIME_USER_HOME/.vnc

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RF2USER_HOME="/root"
+RF2USER_HOME=$RUNTIME_USER_HOME
 VNC_PASSWORD_PATH="$RF2USER_HOME/.vnc/passwd"
 
 if [ -z "$VNC_PASSWORD" ]; then
