@@ -1,7 +1,7 @@
 #!/bin/bash
 
 useradd -ms /bin/bash $RUNTIME_USER_ACCOUNT -p $(perl -e 'print crypt($ENV{"RUNTIME_USER_ACCOUNT"}, "some_salt")') \
-    && sudo usermod -aG adm rf2user
+    && usermod -aG adm rf2user
 
 mkdir $RUNTIME_USER_HOME/Pictures/
 
