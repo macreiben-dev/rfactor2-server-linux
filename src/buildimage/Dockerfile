@@ -14,8 +14,6 @@ ENV RUNTIME_USER_HOME="/home/rf2user"
 # ========================================================================
 # Setup server packages and tool to install rf2Server.
 
-RUN chmod o+sx -R /var/log
-
 RUN mkdir -p /scripts
 
 COPY --chmod=555 ./installationScripts/* /scripts
@@ -59,6 +57,6 @@ RUN ./step_workshopcontent_copyitems.sh
 
 # ========================================================================
 
-USER rf2user
+USER $RUNTIME_USER_ACCOUNT
 
 WORKDIR /server
