@@ -6,7 +6,7 @@ LABEL "author"="macreibendev - Christian Finel"
 
 LABEL "game"="rFactor2"
 
-LABEL "features.release_20240129"="rFactor2 Server,CLI admin,x11vnc for admin,fail2ban,wallpepers"
+LABEL "features.release_20240129"="rFactor2 Server,CLI admin,x11vnc for admin,wallpapers"
 
 ENV RUNTIME_USER_ACCOUNT="rf2user"
 ENV RUNTIME_USER_HOME="/home/rf2user"
@@ -22,7 +22,7 @@ WORKDIR /scripts
 
 RUN ./step_installing_packages.sh
 
-RUN ./step_x11vnc_create_config_folder.sh
+RUN ./step_x11vnc_configure.sh
 
 RUN ./step_installing_powershell.sh
 
@@ -32,13 +32,6 @@ RUN ./step_installing_powershell.sh
 RUN ./step_create_rf2user.sh
 
 COPY --chmod=555 ./wallpapers/*.png /home/rf2user/Pictures
-
-# ========================================================================
-# Fail2ban configuration
-
-COPY --chmod=555 ./configs/x11vnc_filter.conf /etc/fail2ban/filter.d/x11vnc.conf
-
-RUN ./step_fail2ban_configure.sh
 
 # ========================================================================
 # Steamcmd & server installation & admin script copy
