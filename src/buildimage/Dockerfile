@@ -22,9 +22,12 @@ WORKDIR /scripts
 
 RUN ./step_installing_packages.sh
 
-RUN ./step_x11vnc_configure.sh
-
 RUN ./step_installing_powershell.sh
+
+# ========================================================================
+# x11 configuration
+
+RUN ./step_x11vnc_configure.sh
 
 # ========================================================================
 # rf2User configuration
@@ -32,6 +35,11 @@ RUN ./step_installing_powershell.sh
 RUN ./step_create_rf2user.sh
 
 COPY --chmod=555 ./wallpapers/*.png /home/rf2user/Pictures
+
+# ========================================================================
+# Exposing mounted log files
+
+RUN ./step_create_mountedlogfolder.sh
 
 # ========================================================================
 # Steamcmd & server installation & admin script copy
