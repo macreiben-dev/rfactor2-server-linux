@@ -11,5 +11,6 @@ dpkg --add-architecture i386 \
   && apt-get install -y vim \
   && apt-get install -y htop \
   && apt-get install -y fail2ban \
+  && apt-get install -y unzip \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*

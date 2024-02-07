@@ -10,6 +10,7 @@ LABEL "features.release_20240129"="rFactor2 Server,CLI admin,x11vnc for admin,wa
 
 ENV RUNTIME_USER_ACCOUNT="rf2user"
 ENV RUNTIME_USER_HOME="/home/rf2user"
+ENV R2LA_ARCHIVE_NAME="rF2-Log-Analyzer-ver.2.1.022-x64.zip"
 
 # ========================================================================
 # Setup server packages and tool to install rf2Server.
@@ -42,19 +43,26 @@ COPY --chmod=555 ./wallpapers/*.png /home/rf2user/Pictures
 RUN ./step_create_mountedlogfolder.sh
 
 # ========================================================================
-# Steamcmd & server installation & admin script copy
-RUN ./step_installing_steamcmd.sh
+# Install r2la - log analyzer
 
-RUN ./step_installing_rf2server.sh
+COPY ./r2la/$R2LA_ARCHIVE_NAME ~/
 
-COPY --chmod=555 ./adminScripts/*.sh /server 
+RUN ./step_installing_r2la.sh
 
-# ========================================================================
-# Item download and copy
+# # # # ========================================================================
+# # # # Steamcmd & server installation & admin script copy
+# # # RUN ./step_installing_steamcmd.sh
 
-RUN ./step_workshopcontent_downloaditems.sh
+# # # RUN ./step_installing_rf2server.sh
 
-RUN ./step_workshopcontent_copyitems.sh
+# # # COPY --chmod=555 ./adminScripts/*.sh /server 
+
+# # # # ========================================================================
+# # # # Item download and copy
+
+# # # RUN ./step_workshopcontent_downloaditems.sh
+
+# # # RUN ./step_workshopcontent_copyitems.sh
 
 # ========================================================================
 
