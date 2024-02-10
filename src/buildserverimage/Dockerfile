@@ -9,8 +9,6 @@ LABEL "game"="rFactor2"
 LABEL "features.release_20240129"="rFactor2 Server,CLI admin,x11vnc for admin,wallpapers"
 
 ENV RUNTIME_USER_ACCOUNT="rf2user"
-ENV RUNTIME_USER_HOME="/home/rf2user"
-
 
 COPY --chmod=555 ./rf2ServerInstallationScripts/* /scripts
 
