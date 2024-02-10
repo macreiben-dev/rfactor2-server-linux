@@ -10,7 +10,8 @@ LABEL "features.release_20240129"="rFactor2 Server,CLI admin,x11vnc for admin,wa
 
 ENV RUNTIME_USER_ACCOUNT="rf2user"
 ENV RUNTIME_USER_HOME="/home/rf2user"
-ENV R2LA_ARCHIVE_NAME="rF2-Log-Analyzer-ver.2.1.022-x64.zip"
+ENV R2LA_VERSION_NAME="rF2-Log-Analyzer-ver.2.1.022-x64"
+ENV R2LA_ARCHIVE_NAME="$R2LA_VERSION_NAME.zip"
 
 # ========================================================================
 # Setup server packages and tool to install rf2Server.
@@ -45,7 +46,7 @@ RUN ./step_create_mountedlogfolder.sh
 # ========================================================================
 # Install r2la - log analyzer
 
-COPY ./r2la/$R2LA_ARCHIVE_NAME ~/
+COPY ./r2la/$R2LA_ARCHIVE_NAME /root/r2la.zip
 
 RUN ./step_installing_r2la.sh
 
