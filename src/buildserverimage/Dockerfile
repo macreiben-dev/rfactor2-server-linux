@@ -11,35 +11,27 @@ LABEL "features.release_20240129"="rFactor2 Server,CLI admin,x11vnc for admin,wa
 ENV RUNTIME_USER_ACCOUNT="rf2user"
 ENV RUNTIME_USER_HOME="/home/rf2user"
 
-# ========================================================================
-# Setup server packages and tool to install rf2Server.
 
-RUN mkdir -p /scripts
-
-COPY --chmod=555 ./installationScripts/* /scripts
+COPY --chmod=555 ./rf2ServerInstallationScripts/* /scripts
 
 WORKDIR /scripts
 
-RUN ./step_installing_packages.sh
+# ========================================================================
+# Steamcmd & server installation & admin script copy
+RUN ./step_installing_steamcmd.sh
 
-RUN ./step_installing_powershell.sh
+RUN ./step_installing_rf2server.sh
+
+COPY --chmod=555 ./adminScripts/*.sh /server 
 
 # ========================================================================
-# x11 configuration
+# Item download and copy
 
-RUN ./step_x11vnc_configure.sh
+RUN ./step_workshopcontent_downloaditems.sh
 
-# ========================================================================
-# rf2User configuration
-
-RUN ./step_create_rf2user.sh
-
-COPY --chmod=555 ./wallpapers/*.png /home/rf2user/Pictures
+RUN ./step_workshopcontent_copyitems.sh
 
 # ========================================================================
-# Exposing mounted log files
-
-RUN ./step_create_mountedlogfolder.sh
 
 USER $RUNTIME_USER_ACCOUNT
 
