@@ -27,7 +27,7 @@ RUN ./step_installing_powershell.sh
 # ========================================================================
 # x11 configuration
 
-RUN ./step_x11vnc_configure.sh
+# RUN ./step_x11vnc_configure.sh
 
 # ========================================================================
 # Exposing mounted log files
