@@ -30,17 +30,8 @@ RUN ./step_installing_powershell.sh
 RUN ./step_x11vnc_configure.sh
 
 # ========================================================================
-# rf2User configuration
-
-RUN ./step_create_rf2user.sh
-
-COPY --chmod=555 ./wallpapers/*.png /home/rf2user/Pictures
-
-# ========================================================================
 # Exposing mounted log files
 
 RUN ./step_create_mountedlogfolder.sh
-
-USER $RUNTIME_USER_ACCOUNT
 
 WORKDIR /server
