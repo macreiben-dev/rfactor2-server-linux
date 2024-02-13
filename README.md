@@ -2,14 +2,26 @@
 
 This is docker container that bootstraps a rFactor 2 container on an ubuntu.
 
-- Under **[src/buildimage](./src/buildimage)** you will find prebuid sh scripts to create docker images
-- Under **[src/composes](./src/composes)** you will find prebuid docker composes image
+## Hosting in docker ubuntu images
+
+### Images structure
+
+The server image is made of 2 docker files:
+- Under **[src/buildimage](./src/buildimage)** is the dockerfile for the server without rf2
+  - Download packages
+  - Configure x11
+- Under **[src/buildserverimage](./src/buildserverimage)** is the dockerfile for the server without rf2
+  - Installs the rf2Server
+  - Installs DLCs
+
+The server image uses the emtpy server image to fastened the image build.
+
+### Testing the server image
+
+- Under **[src/composes](./src/composes)** you will find a docker composes example
 - You need to **add the ServerUnlock.bin file** to the mounted volume on the docker compose file otherwise, you won't be able to install DLCs.
   - *Do not commit your ServerUnlock.bin file* to a public repository otherwise your license will be used by other.
-```yml
-    volumes:
-      - /mnt/containers/rf2server-bahrain/UserData:/server/UserData
-```
+- **UserData** folder should be mounted to avoid complete reconfiguration of the server between restarts.
 
 ## Getting started - configuring the server
 
