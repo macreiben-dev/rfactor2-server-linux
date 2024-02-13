@@ -14,7 +14,7 @@ The server image is made of 2 docker files:
   - Installs the rf2Server
   - Installs DLCs
 
-The server image uses the emtpy server image to fastened the image build.
+You have to build the empty-server-image first, then the rf2server image.
 
 ### Testing the server image
 
@@ -38,7 +38,7 @@ The server image uses the emtpy server image to fastened the image build.
   - Go to *Applications > Settings > Screensaver*
   - Select disable
 - On the **host**,
-  - Copy **~/ServerUnlock.bin** to the the UserData mounted folder
+  - Copy **~/ServerUnlock.bin** to the the **UserData mounted folder**
 - Install content from the image
   - Open xTerm
   - Run **./admin_start_modMgr.sh**
@@ -81,9 +81,11 @@ Example :
 - **Disable screen saver**, go to Application > Settings > Screensaver
   - Otherwise, the screensaver activates and you won't be able to connect with VNC.
 
-### Configure permission on mounter volums
+### Configure permission on mounted volums
 
 - Ensure the docker container can write on the mounted folder
+- root:root rwx rwx rwx
+  - Otherwise, Userdata folder won't be usable by the server.
 
 ### Optional : set server wallpaper to identify the server
 
@@ -102,7 +104,9 @@ Example :
 docker run -p 5900:5900 rf2-linux-server-lemans
 ```
 
-## Cleanup sh script from windows EOF char
+## Appendix
+
+### Cleanup sh script from windows EOF char
 
 When editing from windows or using GIT causes end of line to change from CRLF to LF. 
 
