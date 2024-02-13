@@ -101,7 +101,7 @@ Example :
 ## Running an image
 
 ```Shell
-docker run -p 5900:5900 rf2-linux-server-lemans
+docker run -p 5900:5900 rf2-linux-server-whatever
 ```
 
 ## Appendix
