@@ -6,7 +6,7 @@ LABEL "author"="macreibendev - Christian Finel"
 
 LABEL "game"="rFactor2"
 
-LABEL "features.release_20240213"="x11vnc for admin,packages"
+LABEL "features.release_20240219"="packages only,powershell"
 
 ENV RUNTIME_USER_ACCOUNT="rf2user"
 ENV RUNTIME_USER_HOME="/home/rf2user"
