@@ -2,14 +2,26 @@
 
 This is docker container that bootstraps a rFactor 2 container on an ubuntu.
 
-- Under **[src/buildimage](./src/buildimage)** you will find prebuid sh scripts to create docker images
-- Under **[src/composes](./src/composes)** you will find prebuid docker composes image
+## Hosting in docker ubuntu images
+
+### Images structure
+
+The server image is made of 2 docker files:
+- Under **[src/buildimage](./src/buildimage)** is the dockerfile for the server without rf2
+  - Download packages
+  - Configure x11
+- Under **[src/buildserverimage](./src/buildserverimage)** is the dockerfile for the server without rf2
+  - Installs the rf2Server
+  - Installs DLCs
+
+You have to build the empty-server-image first, then the rf2server image.
+
+### Testing the server image
+
+- Under **[src/composes](./src/composes)** you will find a docker composes example
 - You need to **add the ServerUnlock.bin file** to the mounted volume on the docker compose file otherwise, you won't be able to install DLCs.
   - *Do not commit your ServerUnlock.bin file* to a public repository otherwise your license will be used by other.
-```yml
-    volumes:
-      - /mnt/containers/rf2server-bahrain/UserData:/server/UserData
-```
+- **UserData** folder should be mounted to avoid complete reconfiguration of the server between restarts.
 
 ## Getting started - configuring the server
 
@@ -26,7 +38,7 @@ This is docker container that bootstraps a rFactor 2 container on an ubuntu.
   - Go to *Applications > Settings > Screensaver*
   - Select disable
 - On the **host**,
-  - Copy **~/ServerUnlock.bin** to the the UserData mounted folder
+  - Copy **~/ServerUnlock.bin** to the the **UserData mounted folder**
 - Install content from the image
   - Open xTerm
   - Run **./admin_start_modMgr.sh**
@@ -69,9 +81,11 @@ Example :
 - **Disable screen saver**, go to Application > Settings > Screensaver
   - Otherwise, the screensaver activates and you won't be able to connect with VNC.
 
-### Configure permission on mounter volums
+### Configure permission on mounted volums
 
 - Ensure the docker container can write on the mounted folder
+- root:root rwx rwx rwx
+  - Otherwise, Userdata folder won't be usable by the server.
 
 ### Optional : set server wallpaper to identify the server
 
@@ -87,10 +101,12 @@ Example :
 ## Running an image
 
 ```Shell
-docker run -p 5900:5900 rf2-linux-server-lemans
+docker run -p 5900:5900 rf2-linux-server-whatever
 ```
 
-## Cleanup sh script from windows EOF char
+## Appendix
+
+### Cleanup sh script from windows EOF char
 
 When editing from windows or using GIT causes end of line to change from CRLF to LF. 
 

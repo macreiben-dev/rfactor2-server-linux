@@ -1,11 +1,12 @@
 services:
-   rfactor-server:
-    image: rf2-linux-server-barhain
-    container_name: rf2-linux-server-barhain
+  rfactor-server:
+    image: empty-rf2-server
+    container_name: rf2-linux-server-test
     volumes:
-      - /mnt/containers/rf2server-bahrain/UserData:/server/UserData
+      - /mnt/containers/rf2-server-test/UserData:/server/UserData:rw
+      - /mnt/containers/rf2-server-test/var-log:/mnt/host-monitored:rw
     ports:
-      - 46100:5900
+      - 5900:5900
       - 65297:65297/tcp
       - 65298:65298/udp
       - 65299:65299/udp
