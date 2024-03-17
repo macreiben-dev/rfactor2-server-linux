@@ -1,1 +1,1 @@
-docker build . -t "blank-rf2-server" --progress=plain --no-cache
+docker build . -t "blank-rf2-server"
