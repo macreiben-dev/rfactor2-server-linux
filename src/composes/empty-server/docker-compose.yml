@@ -2,19 +2,10 @@ services:
   rfactor-server:
     image: empty-rf2-server
     container_name: rf2-linux-server-test
-    volumes:
-      - /mnt/containers/rf2-server-test/UserData:/server/UserData:rw
-      - /mnt/containers/rf2-server-test/var-log:/mnt/host-monitored:rw
     ports:
       - 5900:5900
-      - 65297:65297/tcp
-      - 65298:65298/udp
-      - 65299:65299/udp
-      - 55297:55297/tcp
-      - 55297:55297/udp
     environment:
+      - RUNTIME_USER_HOME=/root
       - VNC_PASSWORD=password
-      - HTTP_SERVER_PORT=65297
-      - SIMULATION_PORT=55297
     command: /bin/bash -c "/scripts/startup.sh"
-    restart: unless-stopped
+    # command: /bin/bash -c "tail -f /dev/null"
