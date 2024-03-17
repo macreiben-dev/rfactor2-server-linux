@@ -6,7 +6,7 @@ LABEL "author"="macreibendev - Christian Finel"
 
 LABEL "game"="rFactor2"
 
-LABEL "features.release_20240318"="packages only,powershell,r2la"
+LABEL "features.release_20240318"="r2la,steamcmd"
 
 ENV R2LA_VERSION_NAME="rF2 Log Analyzer ver. 2.1.026-x64"
 ENV R2LA_ARCHIVE_NAME="$R2LA_VERSION_NAME.zip"
