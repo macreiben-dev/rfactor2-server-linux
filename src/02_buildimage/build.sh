@@ -1,0 +1,1 @@
+docker build . -t "empty-rf2-server"
