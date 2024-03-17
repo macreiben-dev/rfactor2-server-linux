@@ -1,23 +1,9 @@
 #!/bin/bash
 
-echo "Create temporary directory ..."
+unzip /root/r2la.zip -d /root/tmp
 
-mkdir ~/tmp
+mkdir -p /r2la
 
-echo "Create temporary directory DONE/"
+SOURCE_PATH="/root/tmp/$R2LA_VERSION_NAME"
 
-echo "Unziping to temporary directory ..."
-
-# unzip ~/r2la.zip -d ~/tmp
-
-echo "Unziping to temporary directory DONE!"
-
-echo "Creating r2la directory ..."
-
-mkdir /r2la
-
-echo "Creating r2la directory DONE!"
-
-echo ${R2LA_VERSION_NAME}
-
-mv "~/tmp/${R2LA_VERSION_NAME}/" "/r2la"
+mv "$SOURCE_PATH"/* /r2la

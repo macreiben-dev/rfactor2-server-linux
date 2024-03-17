@@ -25,15 +25,7 @@ WORKDIR /scripts
 
 COPY ./r2la/$R2LA_ARCHIVE_NAME /root/r2la.zip
 
-RUN unzip /root/r2la.zip -d /root/tmp
-
-RUN mkdir -p /r2la
-
-ENV SOURCE_PATH="/root/tmp/$R2LA_VERSION_NAME"
-
-RUN mv "$SOURCE_PATH"/* /r2la
-
-RUN ls -la /r2la
+RUN ./step_installing_r2la.sh
 
 # ========================================================================
 
