@@ -6,7 +6,7 @@ LABEL "author"="macreibendev - Christian Finel"
 
 LABEL "game"="rFactor2"
 
-LABEL "features.release_20240219"="packages only,powershell"
+LABEL "features.release_20240318"="packages only,powershell"
 
 # ========================================================================
 # Setup server packages and tool to install rf2Server.
