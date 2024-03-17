@@ -22,6 +22,10 @@ RUN ./step_create_rf2user.sh
 
 COPY --chmod=555 ./wallpapers/*.png /home/rf2user/Pictures
 
+RUN mkdir -p /home/rf2user/Desktop
+
+COPY --chmod=555 ./desktopShortcuts/* /home/rf2user/Desktop
+
 # ========================================================================
 # Steamcmd & server installation & admin script copy
 RUN ./step_installing_rf2server.sh
