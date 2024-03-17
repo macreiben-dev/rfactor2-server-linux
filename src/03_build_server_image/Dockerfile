@@ -11,7 +11,7 @@ LABEL "features.release_20240213"="rFactor2 Server,CLI admin,wallpapers"
 ENV RUNTIME_USER_ACCOUNT="rf2user"
 ENV RUNTIME_USER_HOME="/home/rf2user"
 
-COPY --chmod=555 ./rf2ServerInstallationScripts/* /scripts
+COPY --chmod=555 ./installationScripts/* /scripts
 
 WORKDIR /scripts
 
@@ -24,8 +24,6 @@ COPY --chmod=555 ./wallpapers/*.png /home/rf2user/Pictures
 
 # ========================================================================
 # Steamcmd & server installation & admin script copy
-RUN ./step_installing_steamcmd.sh
-
 RUN ./step_installing_rf2server.sh
 
 COPY --chmod=555 ./adminScripts/*.sh /server 
