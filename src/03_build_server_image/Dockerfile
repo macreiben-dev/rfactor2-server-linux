@@ -39,6 +39,10 @@ RUN ./step_workshopcontent_copyitems.sh
 
 RUN chown -R $RUNTIME_USER_ACCOUNT:$RUNTIME_USER_ACCOUNT /server
 
+RUN chown -R $RUNTIME_USER_ACCOUNT:$RUNTIME_USER_ACCOUNT /r2la
+
+RUN chown -R $RUNTIME_USER_ACCOUNT:$RUNTIME_USER_ACCOUNT /mnt/host-monitored
+
 USER $RUNTIME_USER_ACCOUNT
 
 WORKDIR /server
