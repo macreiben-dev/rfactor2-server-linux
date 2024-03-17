@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM blank-rf2-server-system
 
 ARG workshopitemList
 
@@ -8,9 +8,7 @@ LABEL "game"="rFactor2"
 
 LABEL "features.release_20240219"="packages only,powershell"
 
-ENV RUNTIME_USER_ACCOUNT="rf2user"
-ENV RUNTIME_USER_HOME="/home/rf2user"
-ENV R2LA_VERSION_NAME="rF2-Log-Analyzer-ver.2.1.022-x64"
+ENV R2LA_VERSION_NAME="rF2 Log Analyzer ver. 2.1.026-x64"
 ENV R2LA_ARCHIVE_NAME="$R2LA_VERSION_NAME.zip"
 
 # ========================================================================
@@ -22,39 +20,21 @@ COPY --chmod=555 ./installationScripts/* /scripts
 
 WORKDIR /scripts
 
-RUN ./step_installing_packages.sh
-
-RUN ./step_installing_powershell.sh
-
 # ========================================================================
-# Exposing mounted log files
-
-RUN ./step_create_mountedlogfolder.sh
-
-# ========================================================================
-# Install r2la - log analyzer
+# Copy r2la - log analyzer
 
 COPY ./r2la/$R2LA_ARCHIVE_NAME /root/r2la.zip
 
-RUN ./step_installing_r2la.sh
+RUN unzip /root/r2la.zip -d /root/tmp
 
-# # # # ========================================================================
-# # # # Steamcmd & server installation & admin script copy
-# # # RUN ./step_installing_steamcmd.sh
+RUN mkdir -p /r2la
 
-# # # RUN ./step_installing_rf2server.sh
+ENV SOURCE_PATH="/root/tmp/$R2LA_VERSION_NAME"
 
-# # # COPY --chmod=555 ./adminScripts/*.sh /server 
+RUN mv "$SOURCE_PATH"/* /r2la
 
-# # # # ========================================================================
-# # # # Item download and copy
-
-# # # RUN ./step_workshopcontent_downloaditems.sh
-
-# # # RUN ./step_workshopcontent_copyitems.sh
+RUN ls -la /r2la
 
 # ========================================================================
-
-USER $RUNTIME_USER_ACCOUNT
 
 WORKDIR /server
