@@ -29,4 +29,5 @@ RUN ./step_installing_r2la.sh
 
 # ========================================================================
 
-WORKDIR /server
+RUN ./step_installing_steamcmd.sh
+
