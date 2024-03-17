@@ -1,0 +1,6 @@
+[Desktop Entry]
+Comment=rFactor 2 Mas2
+Name=rF2 Mas2
+Exec=/server/admin_start_mas2.sh
+Terminal=false
+Type=Application

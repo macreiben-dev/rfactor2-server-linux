@@ -1,0 +1,6 @@
+[Desktop Entry]
+Comment=rFactor 2 Mod Manager
+Name=rF2 Mod Manager
+Exec=/server/admin_start_modMgr.sh
+Terminal=false
+Type=Application

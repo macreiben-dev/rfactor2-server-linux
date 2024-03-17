@@ -1,0 +1,6 @@
+[Desktop Entry]
+Comment=rFactor 2 Server
+Name=rf2 Server
+Exec=/server/admin_start_server.sh
+Terminal=false
+Type=Application
