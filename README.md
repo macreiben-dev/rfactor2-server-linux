@@ -6,15 +6,24 @@ This is docker container that bootstraps a rFactor 2 container on an ubuntu.
 
 ### Images structure
 
-The server image is made of 2 docker files:
-- Under **[src/buildimage](./src/buildimage)** is the dockerfile for the server without rf2
-  - Download packages
-  - Configure x11
-- Under **[src/buildserverimage](./src/buildserverimage)** is the dockerfile for the server without rf2
-  - Installs the rf2Server
-  - Installs DLCs
+The server image is made of 4 docker files:
+- Under **[src/00_build_blank_system](./src/00_build_blank_system)**
+  - Linux system and packages
+- Under **[src/01_build_blank_image](./src/01_build_blank_image)** 
+  - Steamcmd install
+  - RFactor 2 Log analyzer installation
+- Under **[src/02_buildimage](./src/02_buildimage)**
+  - Startup script
+  - Mounted folder configuration in the image
+- Under **[src/03_build_server_image](./src/03_build_server_image)**
+  - Copies the admin scripts
+  - Creates the desktop shortcuts
+  - Copies wall papers
+  - Download the rf2 server
+    - Plus the cars and tracks
+  - Also on that a folder, a bunch of pre built image build script for certain circuits and category.
 
-You have to build the empty-server-image first, then the rf2server image.
+Each image depends on the previous one.
 
 ### Testing the server image
 
