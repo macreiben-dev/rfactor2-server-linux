@@ -13,4 +13,4 @@ track_spa="2291867462"
 
 items="${gt3_bentley},${gt3_c7r},${gt3_mercedes},${gt3_porsche911},${gt3_mclaren_720s},${gt3_bmwm6},${gt3_audilms},${gt3_astonmartin},${gt3_ferrari488},${gt3_bmwm4},${track_spa}"
 
-docker build . -t "rf2-spa-gt3" --build-arg workshopitemList=$items
+docker build . -t "rf2-linux-server-spa-gt3" --build-arg workshopitemList=$items
