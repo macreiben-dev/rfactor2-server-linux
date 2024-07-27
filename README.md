@@ -143,6 +143,29 @@ git config --global core.autocrlf false
 git config --global core.eol lf
 ```
 
+## Vehicle list
+
+### GT3 list
+
+```bash
+gt3_bentley="1097230662"
+gt3_c7r="1097232188"
+gt3_mercedes="1097232656"
+gt3_porsche911="1596822183"
+gt3_mclaren_720s="1596821875"
+gt3_bmwm6="1596822133"
+gt3_audilms="1596822230"
+gt3_astonmartin="1596822282"
+gt3_ferrari488="2103827617"
+gt3_bmwm4="2741380074"
+```
+
+### GTE list
+
+```bash
+cars="1411387394,1411394979,1411402133,1737056920,1411394979,2103827595,1411402194,2331284205,2331284105,2883380705"
+```
+
 # Thoughts
 
 ## "Why on earth did you use PowerShell ??"
