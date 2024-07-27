@@ -3,4 +3,4 @@ track="3047323668"
 
 items="${cars},${track}"
 
-docker build . -t "rf2-cota-gt3" --build-arg workshopitemList=$items
+docker build . -t "rf2-cota-gte" --build-arg workshopitemList=$items
