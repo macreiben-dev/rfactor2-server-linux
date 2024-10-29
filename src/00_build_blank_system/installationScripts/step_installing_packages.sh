@@ -1,8 +1,13 @@
 #!/bin/bash
 
+
+
 dpkg --add-architecture i386 \
   && apt-get update \
+  && apt-get install -y net-tools \
   && apt-get install -y wine \
+  && apt-get install -y dbus-x11 \
+  && apt-get install -y xserver-xorg-video-dummy \
   && apt-get install -y x11vnc xvfb \
   && apt-get install -y lib32gcc-s1 lib32z1 lib32stdc++6 \
   && apt-get install -y curl \

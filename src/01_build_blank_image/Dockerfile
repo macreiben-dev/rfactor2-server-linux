@@ -25,6 +25,8 @@ WORKDIR /scripts
 
 COPY ./r2la/$R2LA_ARCHIVE_NAME /root/r2la.zip
 
+RUN ./step_createxauthority.sh
+
 RUN ./step_installing_r2la.sh
 
 # ========================================================================
