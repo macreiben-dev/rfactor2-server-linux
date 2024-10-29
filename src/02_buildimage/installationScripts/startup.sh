@@ -22,4 +22,4 @@ startxfce4 &
 # Wait for XFCE to start
 sleep 5
 
-x11vnc -v -forever -usepw -display :0 -auth /root/.Xauthority
+x11vnc -v -forever -usepw -display :0 -auth ~/.Xauthority
