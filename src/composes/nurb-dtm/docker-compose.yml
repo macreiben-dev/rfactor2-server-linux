@@ -4,7 +4,7 @@ services:
     container_name: rf2-linux-server-test
     volumes:
       - /mnt/containers/rf2-server-test/UserData:/server/UserData:rw
-      # - /mnt/containers/rf2-server-test/var-log:/mnt/host-monitored:rw
+      - /mnt/containers/rf2-server-test/var-log:/mnt/host-monitored:rw
     ports:
       - 5900:5900
       - 8000:8000
