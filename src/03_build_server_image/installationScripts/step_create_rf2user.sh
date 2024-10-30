@@ -6,3 +6,5 @@ useradd -ms /bin/bash $RUNTIME_USER_ACCOUNT -p $(perl -e 'print crypt($ENV{"RUNT
 mkdir $RUNTIME_USER_HOME/Pictures/
 
 chown -R $RUNTIME_USER_ACCOUNT:$RUNTIME_USER_ACCOUNT $RUNTIME_USER_HOME
+
+cp /etc/X11/xinit/xinitrc ~/.xinitrc

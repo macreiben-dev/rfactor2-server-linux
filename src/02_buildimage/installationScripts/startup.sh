@@ -4,6 +4,7 @@
 sh /scripts/startup_x11vnc_setPassword.sh
 
 mkdir -p ~/.cache/xdgr
+mkdir -p ~/.cache/xdgr/dconf
 
 export XDG_RUNTIME_DIR=$PATH:~/.cache/xdgr
 

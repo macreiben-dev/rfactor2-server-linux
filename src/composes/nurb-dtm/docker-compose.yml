@@ -6,13 +6,13 @@ services:
       - /mnt/containers/rf2-server-test/UserData:/server/UserData:rw
       - /mnt/containers/rf2-server-test/var-log:/mnt/host-monitored:rw
     ports:
-      - 5900:5900
-      - 8000:8000
-      - 65297:65297/tcp
-      - 65298:65298/udp
-      - 65299:65299/udp
-      - 55297:55297/tcp
-      - 55297:55297/udp
+      - 45100:5900
+      - 8001:8000
+      - 64297:64297/tcp
+      - 64298:64298/udp
+      - 64299:64299/udp
+      - 54297:54297/tcp
+      - 54297:54297/udp
     environment:
       - VNC_PASSWORD=password
       - HTTP_SERVER_PORT=65297
