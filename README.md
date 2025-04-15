@@ -2,6 +2,20 @@
 
 This is docker container that bootstraps a rFactor 2 container on an ubuntu.
 
+## Running the script on windows
+
+If running on windows please setup git so that it doesn't replace EOF on text file:
+
+```bash
+git config --global core.autocrlf = false
+```
+
+If under windows and autocrlf was on, and you setup git with the above command run to clear the mess:
+
+```bash
+git reset --hard
+```
+
 ## Hosting in docker ubuntu images
 
 ### Images structure
