@@ -13,6 +13,7 @@ dpkg --add-architecture i386 \
   && apt-get install -y curl \
   && apt-get install -y wget \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y xfce4 \
+  && apt-get install xfce4-terminal \
   && apt-get install -y vim \
   && apt-get install -y htop \
   && apt-get install -y unzip \

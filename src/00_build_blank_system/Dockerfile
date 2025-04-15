@@ -13,7 +13,9 @@ LABEL "features.release_20240318"="packages only,powershell"
 
 RUN mkdir -p /scripts
 
-COPY --chmod=555 ./installationScripts/* /scripts
+COPY ./installationScripts/* /scripts
+
+RUN chmod 555 /scripts/*
 
 WORKDIR /scripts
 

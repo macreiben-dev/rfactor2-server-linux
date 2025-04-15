@@ -7,5 +7,5 @@ services:
     environment:
       - RUNTIME_USER_HOME=/root
       - VNC_PASSWORD=password
-    command: /bin/bash -c "/scripts/startup.sh"
-    # command: /bin/bash -c "tail -f /dev/null"
+    # command: /bin/bash -c "/scripts/startup.sh"
+    command: /bin/bash -c "tail -f /dev/null"

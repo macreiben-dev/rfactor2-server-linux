@@ -3,6 +3,8 @@
 # Set the password from environment variable
 sh /scripts/startup_x11vnc_setPassword.sh
 
+rm /tmp/.X0-lock
+
 mkdir -p ~/.cache/xdgr
 mkdir -p ~/.cache/xdgr/dconf
 
