@@ -6,7 +6,7 @@ LABEL "author"="macreibendev - Christian Finel"
 
 LABEL "game"="rFactor2"
 
-LABEL "features.release_20240213"="rFactor2 Server,CLI admin,wallpapers"
+LABEL "features.release_20250613"="rFactor2 Server,CLI admin,wallpapers"
 
 ENV RUNTIME_USER_ACCOUNT="rf2user"
 ENV RUNTIME_USER_HOME="/home/rf2user"
