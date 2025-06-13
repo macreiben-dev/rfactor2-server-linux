@@ -19,4 +19,4 @@ $cars = "$gt3"
 
 $items = "$cars,$tracks"
 
-docker build . -t "rf2-server-linux-watkins-endu" --build-arg workshopitemList=$items
+podman build . -t "rf2-server-linux-watkins-endu" --build-arg workshopitemList=$items
