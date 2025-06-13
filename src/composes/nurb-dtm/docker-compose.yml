@@ -3,8 +3,8 @@ services:
     image: rf2-linux-server-nurb-dtm-alfa
     container_name: rf2-linux-server-test
     volumes:
-      - /mnt/containers/rf2-server-test/UserData:/server/UserData:rw
-      - /mnt/containers/rf2-server-test/var-log:/mnt/host-monitored:rw
+      - C:\Users\chris\podman\rf1_01\UserData:/server/UserData:rw
+      - C:\Users\chris\podman\rf1_01\var-log:/mnt/host-monitored:rw
     ports:
       - 45100:5900
       - 8001:8000

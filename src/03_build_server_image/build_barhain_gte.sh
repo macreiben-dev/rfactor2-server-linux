@@ -3,4 +3,4 @@ tracks="2883380016"
 
 items="${cars},${tracks}"
 
-docker build . -t "rf2-linux-server-barhain-gte" --build-arg workshopitemList=$items
+podman build . -t "rf2-linux-server-barhain-gte" --build-arg workshopitemList=$items

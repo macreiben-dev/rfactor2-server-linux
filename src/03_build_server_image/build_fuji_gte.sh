@@ -5,4 +5,4 @@ tracks="950422832"
 
 items="${cars},${tracks}"
 
-docker build . -t "rf2-linux-server-fuji-gte" --build-arg workshopitemList=$items
+podman build . -t "rf2-linux-server-fuji-gte" --build-arg workshopitemList=$items
