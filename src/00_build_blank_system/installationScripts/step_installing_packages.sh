@@ -18,5 +18,6 @@ dpkg --add-architecture i386 \
   && apt-get install -y htop \
   && apt-get install -y unzip \
   && apt-get install -y winbind \
+  && apt-get install -y winetricks \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
