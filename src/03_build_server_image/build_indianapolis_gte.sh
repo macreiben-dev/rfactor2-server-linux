@@ -5,4 +5,4 @@ tracks="917386941"
 
 items="${cars},${tracks}"
 
-docker build . -t "rf2-linux-server-indianapolis-gte" --build-arg workshopitemList=$items
+podman build . -t "rf2-linux-server-indianapolis-gte" --build-arg workshopitemList=$items

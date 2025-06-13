@@ -25,4 +25,4 @@ cars="$gt3,$hypercar,$lmp2"
 
 items="${cars},${tracks}"
 
-docker build . -t "rf2-server-linux-watkins-endu" --build-arg workshopitemList=$items --no-cache
+podman build . -t "rf2-server-linux-watkins-endu" --build-arg workshopitemList=$items --no-cache

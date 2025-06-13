@@ -15,4 +15,4 @@ $dth_mod = "3093760105"
 
 $items = "$gt3_bentley,$gt3_c7r,$gt3_mercedes,$gt3_porsche911,$gt3_mclaren_720s,$gt3_bmwm6,$gt3_audilms,$gt3_astonmartin,$gt3_ferrari488,$gt3_bmwm4,$track,$dth_mod"
 
-docker build . -t "rf2-linux-server-dth-gt3" --build-arg workshopitemList=$items
+podman build . -t "rf2-linux-server-dth-gt3" --build-arg workshopitemList=$items
