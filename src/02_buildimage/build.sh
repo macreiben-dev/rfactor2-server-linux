@@ -1,1 +1,1 @@
-docker build . -t "empty-rf2-server"
+podman build . -t "empty-rf2-server"

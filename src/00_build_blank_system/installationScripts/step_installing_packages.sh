@@ -13,8 +13,11 @@ dpkg --add-architecture i386 \
   && apt-get install -y curl \
   && apt-get install -y wget \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y xfce4 \
+  && apt-get install -y xfce4-terminal \
   && apt-get install -y vim \
   && apt-get install -y htop \
   && apt-get install -y unzip \
+  && apt-get install -y winbind \
+  && apt-get install -y winetricks \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
